@@ -1,0 +1,53 @@
+class AssetData {
+  static const splashLogo = "assets/images/logo.svg";
+  static const bottomLogo = "assets/images/Capture1.PNG";
+  static const almPhoto = "assets/images/1.png";
+  static const home = "assets/icons/Home.svg";
+  static const notification = "assets/icons/Notification.svg";
+  static const talabaty = "assets/icons/Note.svg";
+  static const profile = "assets/icons/profile.svg";
+  static const favourite = "assets/icons/heart.svg";
+  static const drawer = "assets/icons/logo_drawer.svg";
+  static const banner = "assets/images/Group 17453.png";
+  static const spices = "assets/images/spices.png";
+  static const steak = "assets/images/steak.png";
+  static const mksarat = "assets/images/mksarat.png";
+  static const vegetables = "assets/images/vegetables.svg";
+  static const tamor = "assets/images/Group 17456.png";
+  static const tamorSvg = "assets/icons/steak.svg";
+  static const tomato = "assets/images/tomato.png";
+  static const delete = "assets/icons/delete.svg";
+  static const edit = "assets/icons/edit.svg";
+  static const cach = "assets/icons/cach.svg";
+  static const visa = "assets/icons/visa.svg";
+  static const masterCard = "assets/icons/master_card.svg";
+  static const success = "assets/images/success.svg";
+  static const gzar = "assets/images/gzar.png";
+  static const bate5 = "assets/images/bate5.png";
+  static const map = "assets/images/map.svg";
+  static const visaIcon = "assets/icons/visa_icon.svg";
+  static const cardType = "assets/images/card_type.svg";
+  static const visaCard = "assets/images/visa.PNG";
+  static const note = "assets/icons/Note.svg";
+  static const profilePhoto = "assets/images/1.jpg";
+  static const lineArrow = "assets/images/COCO-Line-Arrow - Left.png";
+
+  static const calling = "assets/images/COCO-Duotone-Call - Calling.png";
+  static const informatioApp = "assets/images/COCO-Duotone-Info.png";
+  static const location = "assets/images/COCO-Duotone-Location.png";
+  static const question = "assets/images/COCO-Duotone-Question.png";
+  static const policy = "assets/images/COCO-Duotone-Shield - check.png";
+  static const stars = "assets/images/COCO-Line-Star.png";
+  static const ma7fza = "assets/images/COCO-Line-Wallet.png";
+  static const pay = "assets/images/Group 17651.png";
+  static const share = "assets/images/share.png";
+  static const personicon = "assets/images/personicon.png";
+  static const shakwa = "assets/images/shakwa.png";
+  static const changeLanguage = "assets/images/changeLanguage.png";
+  static const a7kam = "assets/images/a7kam.png";
+  static const logout = "assets/images/logout.png";
+  static const person = "assets/images/photoperson.PNG";
+  static const arrowTop = "assets/icons/arrow _top.svg";
+    static const tomatoo = "assets/images/tomatoo.png";
+
+}
