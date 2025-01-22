@@ -33,31 +33,34 @@ class ShipingNow extends StatelessWidget {
                 style: Styles.textStyle15.copyWith(fontWeight: FontWeight.bold),
               ),
               Gap(20),
-             CustomTextFormFieldShipping(
-              hintText: "المبلغ الخاص بك",
-             ),
+              CustomTextFormFieldShipping(
+                hintText: "المبلغ الخاص بك",
+              ),
               Gap(20),
               Text(
                 "معلومات البطاقة",
                 style: Styles.textStyle15.copyWith(fontWeight: FontWeight.bold),
               ),
               Gap(20),
-             CustomTextFormFieldShipping(
-              hintText: "الاسم",
-             ),
+              CustomTextFormFieldShipping(
+                hintText: "الاسم",
+              ),
               Gap(20),
-             CustomTextFormFieldShipping(
-              hintText: "رقم البطاقة الإنتمائية",
-             ),
-                           Gap(20),
-
-           CustomTextFormRowShipping(
-            dataExpire: "تاريخ الانتهاء",
-            textNumber: "الرقم المتسلسل",
-           ),
-             Spacer(),
-              CustomButton(text: "دفغ" , onPressed: (){},color: buttonColor,),
-               Gap(15),
+              CustomTextFormFieldShipping(
+                hintText: "رقم البطاقة الإنتمائية",
+              ),
+              Gap(20),
+              CustomTextFormRowShipping(
+                dataExpire: "تاريخ الانتهاء",
+                textNumber: "الرقم المتسلسل",
+              ),
+              Spacer(),
+              CustomButton(
+                text: "دفغ",
+                onPressed: () {},
+                color: buttonColor,
+              ),
+              Gap(15),
             ],
           ),
         ),

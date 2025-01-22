@@ -58,7 +58,7 @@ class NotificationView extends StatelessWidget {
                 ],
               ),
               Gap(10),
-               Row(
+              Row(
                 children: [
                   SvgPicture.asset(
                     AssetData.splashLogo,

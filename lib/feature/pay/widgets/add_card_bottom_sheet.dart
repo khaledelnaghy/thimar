@@ -8,9 +8,7 @@ class AddCardBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          left: 5,
-          right: 5,
-          bottom: MediaQuery.of(context).viewInsets.left),
+          left: 5, right: 5, bottom: MediaQuery.of(context).viewInsets.left),
       child: const SingleChildScrollView(
         child: AddCardView(),
       ),

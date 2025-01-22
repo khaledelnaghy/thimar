@@ -8,6 +8,7 @@ const priceColor = Color(0xff808080);
 const kTranstionDuration = Duration(milliseconds: 250);
 const logo = 'تمارا';
 const tajawal = 'Tajawal';
+
 class PaddingHorizontal extends StatelessWidget {
   const PaddingHorizontal({super.key, this.child});
 

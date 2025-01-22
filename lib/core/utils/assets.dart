@@ -48,6 +48,5 @@ class AssetData {
   static const logout = "assets/images/logout.png";
   static const person = "assets/images/photoperson.PNG";
   static const arrowTop = "assets/icons/arrow _top.svg";
-    static const tomatoo = "assets/images/tomatoo.png";
-
+  static const tomatoo = "assets/images/tomatoo.png";
 }

@@ -58,7 +58,7 @@ class PersonData extends StatelessWidget {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                   border: Border.all(color: Color(0xffF3F3F3), width: 2),
+                  border: Border.all(color: Color(0xffF3F3F3), width: 2),
                   // color: Colors.grey.shade100,
                 ),
                 child: Row(
@@ -122,9 +122,12 @@ class PersonData extends StatelessWidget {
                   size: 17,
                 ),
               ),
-                            Gap(20),
-
-              CustomButton(text: "تعديل البيانات", onPressed: () {} , color: buttonColor,),
+              Gap(20),
+              CustomButton(
+                text: "تعديل البيانات",
+                onPressed: () {},
+                color: buttonColor,
+              ),
             ],
           ),
         ),

@@ -15,7 +15,7 @@ class CustomListViewBasketItem extends StatelessWidget {
     this.iconAdd,
     this.onTapDelete,
     this.iconMinus,
-   required this.iconDelete,
+    required this.iconDelete,
   });
 
   final String? textName;
@@ -70,7 +70,6 @@ class CustomListViewBasketItem extends StatelessWidget {
                           onTap: () {},
                           child: Icon(
                             iconAdd,
-                           
                             size: 15,
                             color: accionColr,
                           ),
@@ -96,7 +95,7 @@ class CustomListViewBasketItem extends StatelessWidget {
                         child: GestureDetector(
                           onTap: () {},
                           child: Icon(
-                          iconMinus,
+                            iconMinus,
                             size: 15,
                             color: accionColr,
                           ),
@@ -116,7 +115,7 @@ class CustomListViewBasketItem extends StatelessWidget {
             ),
           ],
         ),
-      Gap(10),
+        Gap(10),
       ],
     );
   }

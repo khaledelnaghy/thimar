@@ -52,16 +52,15 @@ class _AddCheckButtomSheetOrderState extends State<AddCheckButtomSheetOrder> {
                   height: 60,
                   color: buttonColor,
                   onPressed: () {
-
-                     GoRouter.of(context).push(AppRouter.talabatyView);
+                    GoRouter.of(context).push(AppRouter.talabatyView);
                   }),
               CustomButton(
                   text: "الرئيسية",
                   weight: 145,
                   height: 60,
                   border: Border.all(color: accionColr),
-                  color: Colors.white ,
-                   textColor: buttonColor,
+                  color: Colors.white,
+                  textColor: buttonColor,
                   onPressed: () {}),
             ],
           ),

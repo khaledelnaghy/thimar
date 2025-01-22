@@ -1,13 +1,24 @@
- import 'package:Thimar/core/utils/styles.dart';
+import 'package:Thimar/core/utils/styles.dart';
 import 'package:flutter/material.dart';
- 
+
 class CustomRowTextFormField extends StatelessWidget {
-  const CustomRowTextFormField({super.key, this.hintText, this.prefixIcon , this.hintTextTwo, this.prefixIconTwo});
+  const CustomRowTextFormField(
+      {super.key,
+      this.hintText,
+      this.prefixIcon,
+      this.hintTextTwo,
+      this.validator,
+
+      this.controller,
+      this.prefixIconTwo});
 
   final String? hintText;
+
   final Widget? prefixIcon;
-final String? hintTextTwo;
+  final String? hintTextTwo;
   final Widget? prefixIconTwo;
+final String? Function(String?)? validator;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,11 +31,12 @@ final String? hintTextTwo;
             borderRadius: BorderRadius.circular(25),
           ),
           child: TextFormField(
+          
             keyboardType: TextInputType.phone,
             decoration: InputDecoration(
               border: buildOutLineInputBorder(),
               enabledBorder: buildOutLineInputBorder(),
-              hintText:hintText,
+              hintText: hintText,
               prefixIcon: prefixIcon,
               hintStyle: Styles.textStyle16.copyWith(
                 fontWeight: FontWeight.bold,
@@ -45,6 +57,8 @@ final String? hintTextTwo;
               borderRadius: BorderRadius.circular(25),
             ),
             child: TextFormField(
+                controller: controller,
+            validator: validator,
               decoration: InputDecoration(
                 border: buildOutLineInputBorder(),
                 enabledBorder: buildOutLineInputBorder(),

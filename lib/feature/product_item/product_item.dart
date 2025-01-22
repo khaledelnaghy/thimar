@@ -80,30 +80,28 @@ class ProductItem extends StatelessWidget {
                 maxLines: 4,
                 overflow: TextOverflow.ellipsis,
                 style: Styles.textStyle14.copyWith(
-                     color: Color(0XFF808080),
-                    fontWeight: FontWeight.w300),
+                    color: Color(0XFF808080), fontWeight: FontWeight.w300),
               ),
-                            Gap(10),
-
-            Row(
-              children: [
+              Gap(10),
+              Row(
+                children: [
                   Text(
-                "التقيمات",
-                style: Styles.textStyle17.copyWith(
-                  color: buttonColor,
-                  fontWeight: FontWeight.bold,
-                ),
+                    "التقيمات",
+                    style: Styles.textStyle17.copyWith(
+                      color: buttonColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    "عرض الكل",
+                    style: Styles.textStyle15.copyWith(
+                      color: buttonColor,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ],
               ),
-              Spacer(),
-              Text(
-                "عرض الكل",
-                style: Styles.textStyle15.copyWith(
-                  color: buttonColor,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-              ],
-            ),
             ],
           ),
         ),

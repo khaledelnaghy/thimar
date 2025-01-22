@@ -20,7 +20,7 @@ class RowAppBar extends StatelessWidget {
     return Row(
       children: [
         Container(
-          padding: const EdgeInsets.only(  left: 5),
+          padding: const EdgeInsets.only(left: 5),
           height: 32,
           width: 35,
           decoration: BoxDecoration(
@@ -50,8 +50,7 @@ class RowAppBar extends StatelessWidget {
             icon: Icon(
               iconButtonFavourite,
               size: 20,
-                            color: buttonColor,
-
+              color: buttonColor,
             ),
           ),
         ),

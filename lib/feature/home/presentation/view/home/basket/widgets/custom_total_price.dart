@@ -42,7 +42,7 @@ class CustomTotalPrice extends StatelessWidget {
                     .copyWith(fontWeight: FontWeight.w500, color: accionColr),
               ),
               Text(
-            textTotoalPriceNumber ?? "",
+                textTotoalPriceNumber ?? "",
                 style: Styles.textStyle15
                     .copyWith(fontWeight: FontWeight.w500, color: accionColr),
               ),
@@ -77,7 +77,7 @@ class CustomTotalPrice extends StatelessWidget {
                     .copyWith(fontWeight: FontWeight.w500, color: accionColr),
               ),
               Text(
-             textTotalNumber ?? "",
+                textTotalNumber ?? "",
                 style: Styles.textStyle15
                     .copyWith(fontWeight: FontWeight.w500, color: accionColr),
               ),

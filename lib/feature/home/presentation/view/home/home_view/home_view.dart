@@ -8,8 +8,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          resizeToAvoidBottomInset: false,
-   
+        resizeToAvoidBottomInset: false,
         body: HomeViewBody(),
       ),
     );

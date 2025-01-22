@@ -1,4 +1,4 @@
-import 'package:Thimar/feature/auth/presentation/new_password_body.dart';
+import 'package:Thimar/feature/auth/presentation/reset_password_body.dart';
 import 'package:flutter/material.dart';
 
 class NewPassword extends StatelessWidget {
@@ -7,7 +7,7 @@ class NewPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: NewPasswordBody(),
+      body: ResetPasswordBody(),
     );
   }
 }

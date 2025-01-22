@@ -63,7 +63,7 @@ abstract class AppRouter {
 
   static final router = GoRouter(routes: [
     GoRoute(path: '/', builder: (context, state) => SplashView()),
-     GoRoute(
+    GoRoute(
       path: aboutApp,
       builder: (context, state) => AboutApp(),
     ),
@@ -75,7 +75,7 @@ abstract class AppRouter {
       path: productItem,
       builder: (context, state) => ProductItem(),
     ),
-     GoRoute(
+    GoRoute(
       path: listViewItemClick,
       builder: (context, state) => ListViewItemClick(),
     ),
@@ -83,7 +83,7 @@ abstract class AppRouter {
       path: shipingNow,
       builder: (context, state) => ShipingNow(),
     ),
-     GoRoute(
+    GoRoute(
       path: complaintsSuggestions,
       builder: (context, state) => ComplaintsSuggestions(),
     ),

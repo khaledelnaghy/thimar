@@ -1,7 +1,7 @@
 import 'package:Thimar/core/constant/app_constant.dart';
- import 'package:Thimar/core/utils/styles.dart';
+import 'package:Thimar/core/utils/styles.dart';
 import 'package:flutter/material.dart';
- 
+
 class CustomRowAuth extends StatelessWidget {
   const CustomRowAuth(
       {super.key,

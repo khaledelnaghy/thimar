@@ -1,18 +1,23 @@
 import 'package:Thimar/core/constant/app_constant.dart';
- import 'package:Thimar/core/utils/assets.dart';
+import 'package:Thimar/core/utils/assets.dart';
 import 'package:Thimar/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
- 
+
 class CustomContainerTalabaty extends StatelessWidget {
   const CustomContainerTalabaty(
-      {super.key, this.textTalab, this.textDate, this.textStatus, this.price , this.onTap});
+      {super.key,
+      this.textTalab,
+      this.textDate,
+      this.textStatus,
+      this.price,
+      this.onTap});
 
   final String? textTalab;
   final String? textDate;
   final String? textStatus;
   final String? price;
-final void Function()? onTap;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -80,8 +85,6 @@ final void Function()? onTap;
                 ),
                 child: GestureDetector(
                   onTap: onTap,
-
-             
                   child: Center(
                     child: Text(
                       textStatus ?? "",

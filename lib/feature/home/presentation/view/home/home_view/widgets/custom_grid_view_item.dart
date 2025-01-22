@@ -28,9 +28,7 @@ class CustomGridViewItem extends StatelessWidget {
           crossAxisSpacing: 2,
         ),
         itemBuilder: (context, index) {
-          return
-          
-           Padding(
+          return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +38,6 @@ class CustomGridViewItem extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-
                         GoRouter.of(context).push(AppRouter.productItem);
                       },
                       child: Image.asset(

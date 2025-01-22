@@ -1,4 +1,4 @@
- import 'package:Thimar/feature/home/presentation/view/home/done_order/widgets/payment_bottom_sheet_view.dart';
+import 'package:Thimar/feature/home/presentation/view/home/done_order/widgets/payment_bottom_sheet_view.dart';
 import 'package:flutter/material.dart';
 
 class PaymentBottomSheet extends StatelessWidget {

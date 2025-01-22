@@ -31,7 +31,7 @@ class CustomNDottedBorderButton extends StatelessWidget {
       borderType: BorderType.RRect,
       radius: Radius.circular(15),
       color: accionColr,
-       dashPattern: [4, 4],
+      dashPattern: [4, 4],
       child: Center(
         child: TextButton(
           onPressed: onPressed,

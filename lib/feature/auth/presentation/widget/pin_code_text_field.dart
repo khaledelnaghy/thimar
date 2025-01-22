@@ -2,23 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class CustomPinCodeTextField extends StatelessWidget {
-  const CustomPinCodeTextField({super.key});
+  const CustomPinCodeTextField({super.key, this.controller, this.validator});
+  final TextEditingController? controller;
 
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return PinCodeTextField(
+      controller: controller,
+      cursorColor: Colors.white,
+
       appContext: context,
-      length: 5,
+      validator: validator,
+      length: 4,
       obscureText: false,
       animationType: AnimationType.fade,
       pinTheme: PinTheme(
+        errorBorderColor: Colors.black,
         inactiveFillColor: Colors.white,
-        activeColor: Color(0xff4C8613),
-        inactiveColor: Color(0xffF3F3F3),
+        activeColor: Colors.white,
+        selectedColor: Colors.grey,
+        selectedFillColor: Colors.white,
+        inactiveColor: Color(0xff4C8613),
         shape: PinCodeFieldShape.box,
         borderRadius: BorderRadius.circular(5),
         fieldHeight: 50,
-        fieldWidth: 40,
+        fieldWidth: 60,
         activeFillColor: Colors.white,
       ),
       animationDuration: Duration(milliseconds: 300),
@@ -26,23 +35,12 @@ class CustomPinCodeTextField extends StatelessWidget {
       enableActiveFill: true,
       // controller: pinCodeController,
       onCompleted: (v) {
-        // print("Completed");
+        print("Completed");
       },
-      onChanged: (value) {
-        // print(value);
-        // setState(() {
-        //   currentText = value;
-        // });
-      },
+      beforeTextPaste: (text) {
+        print("Allowing to paste $text");
 
-      validator: (value) {
-        return null;
-
-        // if (value == null || value.isEmpty) {
-        //   return 'please enter your code';
-        // } else {
-        //   return null;
-        // }
+        return true;
       },
     );
   }

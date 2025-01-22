@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomDetailsMa7faza extends StatelessWidget {
-  const CustomDetailsMa7faza({super.key , this.text , this.price , this.date});
+  const CustomDetailsMa7faza({super.key, this.text, this.price, this.date});
 
-  final String? text ;
+  final String? text;
 
-  final String? price ;
-  final String? date ;
+  final String? price;
+  final String? date;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class CustomDetailsMa7faza extends StatelessWidget {
             ),
             Text(
               price ?? "",
-        //        "255 ر.س",
+              //        "255 ر.س",
               style: Styles.textStyle20
                   .copyWith(color: buttonColor, fontWeight: FontWeight.bold),
             ),

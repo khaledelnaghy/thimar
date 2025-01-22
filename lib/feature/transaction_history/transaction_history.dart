@@ -25,11 +25,11 @@ class TransactionHistory extends StatelessWidget {
                   },
                 ),
                 Gap(40),
-                    CustomDetailsMa7faza(
-              date: "27 يونيو 2021",
-              price: "255 ر.س",
-              text: "شحن المحفظة",
-             ),
+                CustomDetailsMa7faza(
+                  date: "27 يونيو 2021",
+                  price: "255 ر.س",
+                  text: "شحن المحفظة",
+                ),
               ],
             ),
           )),

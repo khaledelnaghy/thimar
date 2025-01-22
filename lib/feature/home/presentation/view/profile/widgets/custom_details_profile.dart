@@ -2,7 +2,7 @@ import 'package:Thimar/core/constant/app_constant.dart';
 import 'package:Thimar/core/utils/assets.dart';
 import 'package:Thimar/core/utils/styles.dart';
 import 'package:flutter/material.dart';
- 
+
 class CustomDetailsProfile extends StatelessWidget {
   const CustomDetailsProfile(
       {super.key, this.icon, this.text, this.onTap, this.width});
@@ -20,7 +20,7 @@ class CustomDetailsProfile extends StatelessWidget {
           Image.asset(
             icon ?? AssetData.profile,
             width: width ?? 20,
-             color: buttonColor,
+            color: buttonColor,
           ),
           SizedBox(
             width: 10,

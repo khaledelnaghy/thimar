@@ -25,12 +25,10 @@ class DetailsProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-       
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               textProduct ?? "",

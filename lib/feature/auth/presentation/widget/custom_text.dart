@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 class CustomText extends StatelessWidget {
-  const CustomText({super.key, required this.textOne, required this.textTwo , this.fontSize});
+  const CustomText(
+      {super.key, required this.textOne, required this.textTwo, this.fontSize});
   final String textOne;
   final String textTwo;
   final double? fontSize;
@@ -25,7 +26,7 @@ class CustomText extends StatelessWidget {
             fontSize: fontSize,
           ),
         ),
-        const Gap(10),
+        
       ],
     );
   }

@@ -48,7 +48,9 @@ class CustomAddressTextField extends StatelessWidget {
                   //      width: 23,
                   //   ),
                   // ),
-                    SizedBox(width: 5,),
+                  SizedBox(
+                    width: 5,
+                  ),
                   GestureDetector(
                     onTap: () {},
                     child: SvgPicture.asset(
@@ -117,7 +119,9 @@ class CustomAddressTextField extends StatelessWidget {
                   //      width: 23,
                   //   ),
                   // ),
-                  SizedBox(width: 5,),
+                  SizedBox(
+                    width: 5,
+                  ),
                   GestureDetector(
                     onTap: () {},
                     child: SvgPicture.asset(

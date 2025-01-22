@@ -1,5 +1,12 @@
-import 'package:Thimar/core/utils/app_router.dart';
+import 'package:Thimar/core/function/navigator.dart';
 import 'package:Thimar/core/utils/assets.dart';
+import 'package:Thimar/core/widgets/navigation_view.dart';
+import 'package:Thimar/feature/auth/data/models/request/login_params.dart';
+import 'package:Thimar/feature/auth/presentation/bloc/auth_bloc.dart';
+import 'package:Thimar/feature/auth/presentation/bloc/auth_event.dart';
+import 'package:Thimar/feature/auth/presentation/bloc/auth_state.dart';
+import 'package:Thimar/feature/auth/presentation/view/forget_password.dart';
+import 'package:Thimar/feature/auth/presentation/view/register_view.dart';
 import 'package:Thimar/feature/auth/presentation/widget/custom_button.dart';
 import 'package:Thimar/feature/auth/presentation/widget/custim_forget_password.dart';
 import 'package:Thimar/feature/auth/presentation/widget/custom_logo.dart';
@@ -8,79 +15,135 @@ import 'package:Thimar/feature/auth/presentation/widget/custom_text.dart';
 import 'package:Thimar/feature/auth/presentation/widget/custom_row_text_form_field.dart';
 import 'package:Thimar/feature/auth/presentation/widget/cutom_text_form.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
-import 'package:go_router/go_router.dart';
 
-class LoginViewBody extends StatelessWidget {
+class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
 
   @override
+  State<LoginViewBody> createState() => _LoginViewBodyState();
+}
+
+class _LoginViewBodyState extends State<LoginViewBody> {
+  var formKey = GlobalKey<FormState>();
+  var phoneController = TextEditingController();
+  var passwordController = TextEditingController();
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Gap(50),
-                CustomLogo(
-                  svgPicture: AssetData.splashLogo,
-                  height: 160,
-                  width: 60,
+      body: BlocConsumer<AuthBloc, AuthState>(
+        listener: (context, state) {
+          if (state is LoginSuccessState) {
+            pushAndRemoveUntil(context, const NavigationbarView());
+          } else if (state is LoginErrorState) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text("يوجد خطا ف الادخال"),
+              ),
+            );
+          }
+        },
+        builder: (context, state) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: SingleChildScrollView(
+              child: Form(
+                key: formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Gap(50),
+                    CustomLogo(
+                      svgPicture: AssetData.splashLogo,
+                      height: 160,
+                      width: 60,
+                    ),
+                    CustomText(
+                      textOne: "مرحبا بك مره أخري",
+                      textTwo: "يمكنك تسجيل الدخول الأن",
+                    ),
+                    CustomRowTextFormField(
+                      hintText: "+966",
+                      controller: phoneController,
+                      prefixIcon: Image.asset(AssetData.almPhoto),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "برجاء ادخال رقم الموبايل";
+                        }
+                        return null;
+                      },
+                      hintTextTwo: "رقم الجوال",
+                      prefixIconTwo: const Icon(
+                        FontAwesomeIcons.phoneFlip,
+                        color: Color(0xff828282),
+                        size: 17,
+                      ),
+                    ),
+                    Gap(20),
+                    CutomTextFormField(
+                      hintText: "كلمه المرور",
+                      controller: passwordController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "برجاء ادخال كلمه السر";
+                        }
+                        return null;
+                      },
+                      prefixIcon: Icon(
+                        FontAwesomeIcons.locationPinLock,
+                        color: Color(0XFF828282),
+                        size: 17,
+                      ),
+                    ),
+                    CustimForgetPassword(
+                      text: "نسيت كلمه المرور ؟",
+                      onPressed: () {
+                        pushAndRemoveUntil(context, const ForgetPassword());
+                      },
+                    ),
+                    Gap(30),
+                    state is LoginLoadingState
+                        ? Center(
+                            child: Center(
+                                child: const CircularProgressIndicator()))
+                        : CustomButton(
+                            text: "تسجيل الدخول",
+                            onPressed: () {
+                              if (formKey.currentState!.validate()) {
+                                context.read<AuthBloc>().add(
+                                      LoginEvent(
+                                        params: LoginParams(
+                                          deviceToken: "test",
+                                          type: "ios",
+                                          userType: "client",
+                                          phone:
+                                              int.parse(phoneController.text),
+                                          password: int.parse(
+                                              passwordController.text),
+                                        ),
+                                      ),
+                                    );
+                              }
+                            },
+                          ),
+                    Gap(60),
+                    CustomRowAuth(
+                      text: "ليس لديك حساب؟",
+                      textAction: "تسجيل الأن",
+                      onPressed: () {
+                        pushReplacement(context, const RegisterView());
+                      },
+                    ),
+                  ],
                 ),
-                CustomText(
-                  textOne: "مرحبا بك مره أخري",
-                  textTwo: "يمكنك تسجيل الدخول الأن",
-                ),
-                CustomRowTextFormField(
-                  hintText: "+966",
-                  prefixIcon: Image.asset(AssetData.almPhoto),
-                  hintTextTwo: "رقم الجوال",
-                  prefixIconTwo: const Icon(
-                    FontAwesomeIcons.phoneFlip,
-                    color: Color(0xff828282),
-                    size: 17,
-                  ),
-                ),
-                Gap(20),
-                CutomTextFormField(
-                  hintText: "كلمه المرور",
-                  prefixIcon: Icon(
-                    FontAwesomeIcons.locationPinLock,
-                    color: Color(0XFF828282),
-                    size: 17,
-                  ),
-                ),
-                CustimForgetPassword(
-                  text: "نسيت كلمه المرور ؟",
-                  onPressed: () {
-                    GoRouter.of(context).push(AppRouter.forgetPassword);
-                  },
-                ),
-                Gap(30),
-                CustomButton(
-                  text: "تسجيل الدخول",
-                  onPressed: () {
-                    GoRouter.of(context).push(AppRouter.navigationBarView );
-                  },
-                ),
-                Gap(60),
-                CustomRowAuth(
-                  text: "ليس لديك حساب؟",
-                  textAction: "تسجيل الأن",
-                  onPressed: () {
-                    GoRouter.of(context).push(AppRouter.registerView);
-                  },
-                ),
-              ],
+              ),
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }
 }
+//  GoRouter.of(context).push(AppRouter.navigationBarView);

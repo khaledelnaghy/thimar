@@ -1,10 +1,10 @@
 import 'package:Thimar/core/constant/app_constant.dart';
-import 'package:Thimar/core/utils/app_router.dart';
+import 'package:Thimar/core/function/navigator.dart';
 import 'package:Thimar/core/utils/assets.dart';
+import 'package:Thimar/feature/auth/presentation/view/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
-import 'package:go_router/go_router.dart';
 
 class SplashBody extends StatefulWidget {
   const SplashBody({super.key});
@@ -27,8 +27,9 @@ class _SplashBodyState extends State<SplashBody>
 
   @override
   void dispose() {
+     animationController.dispose();
     super.dispose();
-    animationController.dispose();
+   
   }
 
   @override
@@ -78,7 +79,14 @@ class _SplashBodyState extends State<SplashBody>
   void navigateToHome() {
     Future.delayed(const Duration(seconds: 2), () {
       // ignore: use_build_context_synchronously
-      GoRouter.of(context).push(AppRouter.loginView);
+      pushAndRemoveUntil(context, const LoginView());
     });
   }
 }
+ // String isLogin = LocalStorage.getData(key: LocalStorage.token) ?? "";
+ // if (isLogin.isNotEmpty) {
+      //   // ignore: use_build_context_synchronously
+      //   pushAndRemoveUntil(context, const NavigationbarView());
+      // } else {
+      //   pushAndRemoveUntil(context, const LoginView());
+      // }

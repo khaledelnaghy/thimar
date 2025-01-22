@@ -1,11 +1,11 @@
 import 'package:Thimar/core/constant/app_constant.dart';
 import 'package:Thimar/core/utils/app_router.dart';
- import 'package:Thimar/core/utils/styles.dart';
+import 'package:Thimar/core/utils/styles.dart';
 import 'package:Thimar/feature/home/presentation/view/home/add_address_bottom_sheet/widgets/custom_new_address.dart';
 import 'package:Thimar/feature/home/presentation/widgets/custom_app_bar_row.dart';
 import 'package:Thimar/feature/wallet/widgets/custom_details_ma7faza.dart';
 import 'package:flutter/material.dart';
- import 'package:gap/gap.dart';
+import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
 class Wallet extends StatelessWidget {
@@ -73,16 +73,15 @@ class Wallet extends StatelessWidget {
                 ),
               ),
               Gap(30),
-             CustomDetailsMa7faza(
-              date: "27 يونيو 2021",
-              price: "255 ر.س",
-              text: "شحن المحفظة",
-             ),
+              CustomDetailsMa7faza(
+                date: "27 يونيو 2021",
+                price: "255 ر.س",
+                text: "شحن المحفظة",
+              ),
             ],
           ),
         ),
       ),
-      
     );
   }
 }

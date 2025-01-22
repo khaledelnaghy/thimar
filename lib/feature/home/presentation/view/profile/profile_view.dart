@@ -59,7 +59,7 @@ class ProfileView extends StatelessWidget {
                       Gap(15),
                       CustomDetailsProfile(
                         onTap: () {
-                            GoRouter.of(context).push(AppRouter.address);
+                          GoRouter.of(context).push(AppRouter.address);
                         },
                         text: "العناوين",
                         icon: AssetData.location,
@@ -67,7 +67,7 @@ class ProfileView extends StatelessWidget {
                       Gap(15),
                       CustomDetailsProfile(
                         onTap: () {
-                           GoRouter.of(context).push(AppRouter.pay);
+                          GoRouter.of(context).push(AppRouter.pay);
                         },
                         text: "الدفع",
                         icon: AssetData.pay,
@@ -75,7 +75,7 @@ class ProfileView extends StatelessWidget {
                       Gap(15),
                       CustomDetailsProfile(
                         onTap: () {
-                           GoRouter.of(context).push(AppRouter.qusetions);
+                          GoRouter.of(context).push(AppRouter.qusetions);
                         },
                         text: "اسئلة متكررة",
                         icon: AssetData.question,
@@ -83,7 +83,7 @@ class ProfileView extends StatelessWidget {
                       Gap(15),
                       CustomDetailsProfile(
                         onTap: () {
-                           GoRouter.of(context).push(AppRouter.policy);
+                          GoRouter.of(context).push(AppRouter.policy);
                         },
                         text: "سياسةالخصوصية",
                         icon: AssetData.policy,
@@ -91,7 +91,7 @@ class ProfileView extends StatelessWidget {
                       Gap(15),
                       CustomDetailsProfile(
                         onTap: () {
-                           GoRouter.of(context).push(AppRouter.calling);
+                          GoRouter.of(context).push(AppRouter.calling);
                         },
                         text: "تواصل معنا",
                         icon: AssetData.calling,
@@ -99,7 +99,8 @@ class ProfileView extends StatelessWidget {
                       Gap(15),
                       CustomDetailsProfile(
                         onTap: () {
-                           GoRouter.of(context).push(AppRouter.complaintsSuggestions);
+                          GoRouter.of(context)
+                              .push(AppRouter.complaintsSuggestions);
                         },
                         text: "الشكاوي والإقتراحات",
                         icon: AssetData.shakwa,
@@ -113,7 +114,7 @@ class ProfileView extends StatelessWidget {
                       Gap(15),
                       CustomDetailsProfile(
                         onTap: () {
-                           GoRouter.of(context).push(AppRouter.aboutApp);
+                          GoRouter.of(context).push(AppRouter.aboutApp);
                         },
                         text: "عن التطبيق",
                         icon: AssetData.informatioApp,
@@ -139,7 +140,7 @@ class ProfileView extends StatelessWidget {
                       Gap(15),
                       CustomDetailsProfile(
                         onTap: () {
-                           GoRouter.of(context).push(AppRouter.loginView);
+                          GoRouter.of(context).push(AppRouter.loginView);
                         },
                         text: "تسجيل الخروج",
                         icon: AssetData.logout,

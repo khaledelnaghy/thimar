@@ -26,15 +26,13 @@ class Address extends StatelessWidget {
                     Navigator.pop(context);
                   },
                 ),
-                          const Gap(25),
-
+                const Gap(25),
                 CustomAddressTextField(),
-              const Gap(25),
-             CustomNDottedBorderButton(
-              text: "إضافة عنوان",
-              color: buttonColor,
-            
-             ),
+                const Gap(25),
+                CustomNDottedBorderButton(
+                  text: "إضافة عنوان",
+                  color: buttonColor,
+                ),
               ],
             ),
           )),

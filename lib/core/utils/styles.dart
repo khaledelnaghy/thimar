@@ -15,7 +15,7 @@ abstract class Styles {
   );
   static const textStyle16 =
       TextStyle(fontSize: 16, fontWeight: FontWeight.bold, fontFamily: tajawal);
-      static const textStyle11 = TextStyle(
+  static const textStyle11 = TextStyle(
     fontSize: 11,
     fontWeight: FontWeight.w500,
     color: buttonColor,
@@ -27,7 +27,7 @@ abstract class Styles {
     fontWeight: FontWeight.w400,
     fontFamily: tajawal,
   );
-   static const textStyle10 = TextStyle(
+  static const textStyle10 = TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.w400,
     fontFamily: tajawal,

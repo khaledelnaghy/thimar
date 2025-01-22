@@ -8,7 +8,9 @@ class ResentCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ResentCodeBody(),
+      body: ResentCodeBody(
+        numberPhone: "",
+      ),
     );
   }
 }

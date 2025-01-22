@@ -1,7 +1,7 @@
 import 'package:Thimar/core/constant/app_constant.dart';
 import 'package:Thimar/core/utils/assets.dart';
 import 'package:Thimar/core/utils/styles.dart';
- import 'package:Thimar/feature/home/presentation/view/home/done_order/widgets/payment_bottom_sheet.dart';
+import 'package:Thimar/feature/home/presentation/view/home/done_order/widgets/payment_bottom_sheet.dart';
 import 'package:Thimar/feature/home/presentation/view/home/done_order/widgets/payment_card.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -18,7 +18,6 @@ class CustomPaymentRow extends StatelessWidget {
       children: [
         Text(
           text ?? "",
-        
           style: Styles.textStyle17.copyWith(
             color: buttonColor,
             fontWeight: FontWeight.bold,
@@ -34,24 +33,26 @@ class CustomPaymentRow extends StatelessWidget {
               text: 'كاش',
             ),
             InkWell(
-              onTap: (){
+              onTap: () {
                 showModelBottomSheetPayment(context);
               },
               child: PaymentCard(
                 logo: AssetData.masterCard,
                 text: 'mastercard',
-                colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
+                colorFilter:
+                    const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
               ),
             ),
             // Visa
             InkWell(
-               onTap: (){
+              onTap: () {
                 showModelBottomSheetPayment(context);
               },
               child: PaymentCard(
                 logo: AssetData.visa,
                 text: 'visa',
-                colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
+                colorFilter:
+                    const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
               ),
             ),
             // Cash
@@ -60,6 +61,7 @@ class CustomPaymentRow extends StatelessWidget {
       ],
     );
   }
+
   void showModelBottomSheetPayment(BuildContext context) {
     showModalBottomSheet(
         isScrollControlled: true,

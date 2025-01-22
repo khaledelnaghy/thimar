@@ -26,7 +26,7 @@ class CustomButton extends StatelessWidget {
   final double? fontSize;
   final BorderRadiusGeometry? borderRadius;
   final Color? color;
-final BoxBorder? border;
+  final BoxBorder? border;
   final Color? textColor;
   @override
   Widget build(BuildContext context) {
@@ -36,8 +36,8 @@ final BoxBorder? border;
       width: weight ?? double.infinity,
       height: height ?? 60,
       decoration: BoxDecoration(
-        border: border ,
-        color:color ?? accionColr,
+        border: border,
+        color: color ?? accionColr,
         borderRadius: borderRadius ?? BorderRadius.circular(15),
       ),
       child: Center(
@@ -46,7 +46,7 @@ final BoxBorder? border;
           child: Text(
             text,
             style: Styles.textStyle16.copyWith(
-              color: textColor??Colors.white,
+              color: textColor ?? Colors.white,
               fontWeight: FontWeight.bold,
               fontSize: fontSize ?? 16,
             ),

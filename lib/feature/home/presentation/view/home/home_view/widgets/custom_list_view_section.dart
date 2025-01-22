@@ -32,7 +32,8 @@ class CustomListViewSection extends StatelessWidget {
                         ),
                         child: GestureDetector(
                           onTap: () {
-                            GoRouter.of(context).push(AppRouter.listViewItemClick);
+                            GoRouter.of(context)
+                                .push(AppRouter.listViewItemClick);
                           },
                           child: Image.asset(
                             AssetData.steak,
