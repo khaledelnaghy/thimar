@@ -1,6 +1,6 @@
 import 'package:Thimar/core/constant/apis.dart';
 import 'package:dio/dio.dart';
- 
+
 class DioProvider {
   static late Dio dio;
   static init() {
@@ -33,6 +33,7 @@ class DioProvider {
     return await dio.put(endPoint,
         options: Options(headers: header), data: data);
   }
+
   static Future<Response> delete(
       {required String endPoint,
       Map<String, dynamic>? header,

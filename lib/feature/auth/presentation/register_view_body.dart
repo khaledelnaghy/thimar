@@ -151,7 +151,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                     ),
                     Gap(5),
                     state is RegisterLoadingState
-                        ? Center( child: const CircularProgressIndicator())
+                        ? Center(child: const CircularProgressIndicator())
                         : CustomButton(
                             text: "تسجيل",
                             onPressed: () {

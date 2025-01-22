@@ -26,7 +26,6 @@ class CustomText extends StatelessWidget {
             fontSize: fontSize,
           ),
         ),
-        
       ],
     );
   }

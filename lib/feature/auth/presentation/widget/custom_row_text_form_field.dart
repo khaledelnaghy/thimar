@@ -8,7 +8,6 @@ class CustomRowTextFormField extends StatelessWidget {
       this.prefixIcon,
       this.hintTextTwo,
       this.validator,
-
       this.controller,
       this.prefixIconTwo});
 
@@ -17,7 +16,7 @@ class CustomRowTextFormField extends StatelessWidget {
   final Widget? prefixIcon;
   final String? hintTextTwo;
   final Widget? prefixIconTwo;
-final String? Function(String?)? validator;
+  final String? Function(String?)? validator;
   final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
@@ -31,7 +30,6 @@ final String? Function(String?)? validator;
             borderRadius: BorderRadius.circular(25),
           ),
           child: TextFormField(
-          
             keyboardType: TextInputType.phone,
             decoration: InputDecoration(
               border: buildOutLineInputBorder(),
@@ -57,8 +55,8 @@ final String? Function(String?)? validator;
               borderRadius: BorderRadius.circular(25),
             ),
             child: TextFormField(
-                controller: controller,
-            validator: validator,
+              controller: controller,
+              validator: validator,
               decoration: InputDecoration(
                 border: buildOutLineInputBorder(),
                 enabledBorder: buildOutLineInputBorder(),

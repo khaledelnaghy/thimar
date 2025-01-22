@@ -27,9 +27,8 @@ class _SplashBodyState extends State<SplashBody>
 
   @override
   void dispose() {
-     animationController.dispose();
+    animationController.dispose();
     super.dispose();
-   
   }
 
   @override
@@ -83,10 +82,10 @@ class _SplashBodyState extends State<SplashBody>
     });
   }
 }
- // String isLogin = LocalStorage.getData(key: LocalStorage.token) ?? "";
- // if (isLogin.isNotEmpty) {
-      //   // ignore: use_build_context_synchronously
-      //   pushAndRemoveUntil(context, const NavigationbarView());
-      // } else {
-      //   pushAndRemoveUntil(context, const LoginView());
-      // }
+// String isLogin = LocalStorage.getData(key: LocalStorage.token) ?? "";
+// if (isLogin.isNotEmpty) {
+//   // ignore: use_build_context_synchronously
+//   pushAndRemoveUntil(context, const NavigationbarView());
+// } else {
+//   pushAndRemoveUntil(context, const LoginView());
+// }

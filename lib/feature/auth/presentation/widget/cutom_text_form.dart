@@ -19,8 +19,8 @@ class CutomTextFormField extends StatelessWidget {
   final double? fontSize;
   final double? height;
   final EdgeInsetsGeometry? padding;
-final TextEditingController? controller;
-final String? Function(String?)? validator;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
   final EdgeInsetsGeometry? margin;
   @override
   Widget build(BuildContext context) {
@@ -35,8 +35,8 @@ final String? Function(String?)? validator;
         borderRadius: BorderRadius.circular(25),
       ),
       child: TextFormField(
-        controller: controller ,
-        validator:validator ,
+        controller: controller,
+        validator: validator,
         decoration: InputDecoration(
           border: buildOutLineInputBorder(),
           enabledBorder: buildOutLineInputBorder(),

@@ -7,8 +7,8 @@ class CustomCircularCountDownTimer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     return Center(
-       child: CircularCountDownTimer(
+    return Center(
+      child: CircularCountDownTimer(
         duration: 5,
         initialDuration: 0,
         controller: CountDownController(),
@@ -20,7 +20,6 @@ class CustomCircularCountDownTimer extends StatelessWidget {
         fillGradient: null,
         backgroundColor: Colors.white,
         backgroundGradient: null,
-         
         strokeCap: StrokeCap.round,
         textStyle: const TextStyle(
             fontSize: 25.0, color: buttonColor, fontWeight: FontWeight.bold),
@@ -46,7 +45,7 @@ class CustomCircularCountDownTimer extends StatelessWidget {
             return Function.apply(defaultFormatterFunction, [duration]);
           }
         },
-           ),
-     );
+      ),
+    );
   }
 }

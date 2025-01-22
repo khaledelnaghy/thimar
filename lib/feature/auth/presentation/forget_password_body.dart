@@ -33,10 +33,11 @@ class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
           listener: (context, state) {
             if (state is ForgetPasswordSuccessState) {
               pushAndRemoveUntil(
-                  context,
-                  ResentCodeBody(
-                    numberPhone: phoneController.text,
-                  ),);
+                context,
+                ResentCodeBody(
+                  numberPhone: phoneController.text,
+                ),
+              );
             }
           },
           builder: (context, state) {
@@ -60,7 +61,7 @@ class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
                       ),
                       Gap(15),
                       CustomRowTextFormField(
-                         controller: phoneController,
+                        controller: phoneController,
                         hintText: "966+",
                         prefixIcon: Image.asset(AssetData.almPhoto),
                         hintTextTwo: "رقم الجوال",
@@ -72,7 +73,6 @@ class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
                           }
                           return null;
                         },
-                       
                         prefixIconTwo: const Icon(
                           FontAwesomeIcons.phoneFlip,
                           color: Color(0xff828282),
@@ -92,7 +92,6 @@ class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
                                         phone: phoneController.text,
                                       ));
                                 }
-                               
                               },
                             ),
                       Gap(40),
