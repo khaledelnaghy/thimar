@@ -1,5 +1,6 @@
 import 'package:Thimar/core/function/navigator.dart';
 import 'package:Thimar/core/utils/assets.dart';
+import 'package:Thimar/core/widgets/map.dart';
 import 'package:Thimar/feature/auth/data/models/request/register_params.dart';
 import 'package:Thimar/feature/auth/presentation/bloc/auth_bloc.dart';
 import 'package:Thimar/feature/auth/presentation/bloc/auth_event.dart';
@@ -12,10 +13,12 @@ import 'package:Thimar/feature/auth/presentation/widget/custom_row_auth.dart';
 import 'package:Thimar/feature/auth/presentation/widget/custom_row_text_form_field.dart';
 import 'package:Thimar/feature/auth/presentation/widget/custom_text.dart';
 import 'package:Thimar/feature/auth/presentation/widget/cutom_text_form.dart';
+import 'package:Thimar/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class RegisterViewBody extends StatefulWidget {
   const RegisterViewBody({super.key});
@@ -110,10 +113,22 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                       onTap: () {},
                       child: CutomTextFormField(
                         hintText: "المدينة",
-                        prefixIcon: Icon(
-                          FontAwesomeIcons.flag,
-                          color: Color(0XFF828282),
-                          size: 17,
+                        prefixIcon: InkWell(
+                          onTap: () {
+                            //  Permission.location.request() => تستخدم لطلب إذن الوصول لموثع الجهاز
+                            Permission.location.request().then((value) {
+                              //value.isGranted => إذا تم منح الإذن للوصول للموقع ف دا معناة ان المستخدم قد وافق علي منح الإذن
+                              if (value.isGranted) {
+                                push(navigatorKey.currentContext!,
+                                    const MapViewAction());
+                              }
+                            });
+                          },
+                          child: Icon(
+                            FontAwesomeIcons.flag,
+                            color: Color(0XFF828282),
+                            size: 17,
+                          ),
                         ),
                       ),
                     ),

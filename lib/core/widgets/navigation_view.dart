@@ -9,8 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class NavigationbarView extends StatefulWidget {
-  const NavigationbarView({super.key});
-
+  const NavigationbarView({super.key , this.index = 0});
+  final int index;
   @override
   State<NavigationbarView> createState() => _NavigationbarViewState();
 }

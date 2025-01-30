@@ -8,6 +8,7 @@ import 'package:Thimar/feature/add_address_bottom_sheet/widgets/add_address_bott
 import 'package:Thimar/feature/done_order/presentation/bloc/done_order_bloc.dart';
 import 'package:Thimar/feature/done_order/presentation/bloc/done_order_event.dart';
 import 'package:Thimar/feature/done_order/presentation/bloc/done_order_state.dart';
+import 'package:Thimar/feature/done_order/presentation/view/saved_card_view.dart';
 import 'package:Thimar/feature/done_order/presentation/widgets/address_bottom_sheet_order.dart';
 import 'package:Thimar/feature/done_order/presentation/widgets/custom_container_house.dart';
 import 'package:Thimar/feature/done_order/presentation/widgets/custom_payment_row.dart';
@@ -46,7 +47,7 @@ class _DoneOrderState extends State<DoneOrder> {
           child: BlocConsumer<OrderBloc, OrderState>(
             listener: (context, state) {
               if (state is ConfirmOrderSuccessState) {
-                push(context, const AddAddressBottomSheetOrder());
+                push(context, const SavedCardView());
               }
             },
             builder: (context, state) {
