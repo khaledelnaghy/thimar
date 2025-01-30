@@ -7,9 +7,12 @@ class DetailsProductItem extends StatelessWidget {
       {super.key,
       this.priceProductAndSize,
       this.priceProduct,
+      this.onPressedAdd,
+      this.onPressedRemove,
       this.sizeProduct,
       this.add,
       this.remove,
+      this.text,
       this.priceUnderLine,
       this.textProduct});
 
@@ -22,6 +25,11 @@ class DetailsProductItem extends StatelessWidget {
   final IconData? remove;
 
   final String? priceUnderLine;
+  final String? text;
+
+  final void Function()? onPressedAdd;
+  final void Function()? onPressedRemove;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -96,21 +104,21 @@ class DetailsProductItem extends StatelessWidget {
               child: Row(
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: onPressedAdd,
                     icon: Icon(
                       add,
                       color: buttonColor,
                     ),
                   ),
                   Text(
-                    "5",
+                    text ?? "",
                     style: Styles.textStyle15.copyWith(
                         fontWeight: FontWeight.w500,
                         color: buttonColor,
                         fontSize: 17),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: onPressedRemove,
                     icon: Icon(
                       remove,
                       color: buttonColor,

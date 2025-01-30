@@ -1,6 +1,6 @@
 import 'unit.dart';
 
-class Datum {
+class ProductDetailsModel {
   int? categoryId;
   int? id;
   String? title;
@@ -17,7 +17,7 @@ class Datum {
   String? mainImage;
   String? createdAt;
 
-  Datum({
+  ProductDetailsModel({
     this.categoryId,
     this.id,
     this.title,
@@ -35,7 +35,8 @@ class Datum {
     this.createdAt,
   });
 
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+  factory ProductDetailsModel.fromJson(Map<String, dynamic> json) =>
+      ProductDetailsModel(
         categoryId: json['category_id'] as int?,
         id: json['id'] as int?,
         title: json['title'] as String?,

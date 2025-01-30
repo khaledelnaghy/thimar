@@ -1,5 +1,5 @@
 import 'package:Thimar/core/widgets/navigation_view.dart';
-import 'package:Thimar/feature/about_app/about_app.dart';
+import 'package:Thimar/feature/about_app/presentation/view/about_app.dart';
 import 'package:Thimar/feature/address/address.dart';
 import 'package:Thimar/feature/auth/presentation/view/forget_password.dart';
 import 'package:Thimar/feature/auth/presentation/view/login_view.dart';
@@ -7,23 +7,22 @@ import 'package:Thimar/feature/auth/presentation/view/new_password.dart';
 import 'package:Thimar/feature/auth/presentation/view/register_view.dart';
 import 'package:Thimar/feature/auth/presentation/view/resend_code.dart';
 import 'package:Thimar/feature/calling/calling.dart';
-import 'package:Thimar/feature/complaints_suggestions/complaints_suggestions.dart';
-import 'package:Thimar/feature/home/presentation/view/home/basket/basket_view.dart';
-import 'package:Thimar/feature/home/presentation/view/home/done_order/done_order.dart';
+import 'package:Thimar/feature/complaints_suggestions/presentation/view/complaints_suggestions.dart';
+import 'package:Thimar/feature/cart/presentation/view/cart_view.dart';
+import 'package:Thimar/feature/done_order/presentation/view/done_order.dart';
 import 'package:Thimar/feature/home/presentation/view/home/home_view/list_view_item_click.dart';
-import 'package:Thimar/feature/home/presentation/view/profile/profile_view.dart';
-import 'package:Thimar/feature/home/presentation/view/favourite/favourite_view.dart';
-import 'package:Thimar/feature/home/presentation/view/notification/notification_view.dart';
+import 'package:Thimar/feature/profile/presentation/view/profile_view.dart';
+import 'package:Thimar/feature/favourite/presentation/view/favourite_view.dart';
+import 'package:Thimar/feature/notification/notification_view.dart';
 import 'package:Thimar/feature/home/presentation/view/home/home_view/home_view.dart';
-import 'package:Thimar/feature/home/presentation/view/talabaty/talabaty_view.dart';
-import 'package:Thimar/feature/home/presentation/view/talabaty/widgets/details_order/details_order.dart';
+import 'package:Thimar/feature/talabaty/talabaty_view.dart';
 import 'package:Thimar/feature/pay/pay.dart';
 import 'package:Thimar/feature/person_data/person_data.dart';
-import 'package:Thimar/feature/policy/policy.dart';
-import 'package:Thimar/feature/product_item/product_item.dart';
-import 'package:Thimar/feature/questions/qusetions.dart';
+import 'package:Thimar/feature/policy/presentation/view/policy.dart';
+import 'package:Thimar/feature/questions/presentation/view/qusetions.dart';
 import 'package:Thimar/feature/shipping%20_now/shiping_now.dart';
 import 'package:Thimar/feature/splash/presentation/view/splash_screen.dart';
+import 'package:Thimar/feature/talabaty/widgets/list_view_current_order.dart';
 import 'package:Thimar/feature/transaction_history/transaction_history.dart';
 import 'package:Thimar/feature/wallet/wallet.dart';
 import 'package:go_router/go_router.dart';
@@ -71,10 +70,10 @@ abstract class AppRouter {
       path: loginView,
       builder: (context, state) => LoginView(),
     ),
-    GoRoute(
-      path: productItem,
-      builder: (context, state) => ProductItem(),
-    ),
+    // GoRoute(
+    //   path: productItem,
+    //   builder: (context, state) => ProductItem(),
+    // ),
     GoRoute(
       path: listViewItemClick,
       builder: (context, state) => ListViewItemClick(),
@@ -113,7 +112,7 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: detailsOrder,
-      builder: (context, state) => DetailsOrderMaps(),
+      builder: (context, state) => CurrentListView(),
     ),
     GoRoute(
       path: doneOrder,
@@ -125,7 +124,7 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: basket,
-      builder: (context, state) => BasketView(),
+      builder: (context, state) => CartView(),
     ),
     GoRoute(
       path: resentCode,

@@ -3,7 +3,7 @@ import 'links.dart';
 import 'meta.dart';
 
 class HomeResponseModel {
-  List<Datum>? data;
+  List<ProductDetailsModel>? data;
   Links? links;
   Meta? meta;
   String? status;
@@ -26,7 +26,7 @@ class HomeResponseModel {
   factory HomeResponseModel.fromJson(Map<String, dynamic> json) {
     return HomeResponseModel(
       data: (json['data'] as List<dynamic>?)
-          ?.map((e) => Datum.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ProductDetailsModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       links: json['links'] == null
           ? null

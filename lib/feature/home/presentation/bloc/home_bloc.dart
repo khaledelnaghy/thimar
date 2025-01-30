@@ -13,7 +13,15 @@ import 'package:bloc/bloc.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(HomeInitial()) {
-    on<HomeEvent>((event, emit) {});
+    on<ShowHome>(showHome);
+    on<BannerHome>(bannerHome);
+    on<CategoriesHome>(categoryHome);
+    on<ProductEvaluationHome>(productEvaluationHome);
+    on<CategoryDrinksHome>(categoryDrinks);
+    on<CategoriesMealsHome>(categoryMeals);
+    on<CategoriesVegetablesHome>(categoryVegetables);
+    on<CategoriesFruitsHome>(categoryFruties);
+    on<AddToFavorite>(addToFavorite);
   }
   HomeResponseModel? homeResponseModel;
   BannerHomeResponseModel? bannerHomeResponseModel;

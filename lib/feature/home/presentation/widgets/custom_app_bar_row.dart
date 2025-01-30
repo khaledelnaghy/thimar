@@ -32,7 +32,7 @@ class CustomAppBarRow extends StatelessWidget {
           ),
         ),
         SizedBox(
-          width: 75,
+          width: 50,
         ),
         Text(
           text ?? "",

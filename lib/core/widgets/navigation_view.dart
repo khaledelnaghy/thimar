@@ -1,10 +1,10 @@
 import 'package:Thimar/core/constant/app_constant.dart';
 import 'package:Thimar/core/utils/assets.dart';
-import 'package:Thimar/feature/home/presentation/view/profile/profile_view.dart';
-import 'package:Thimar/feature/home/presentation/view/favourite/favourite_view.dart';
-import 'package:Thimar/feature/home/presentation/view/notification/notification_view.dart';
+import 'package:Thimar/feature/profile/presentation/view/profile_view.dart';
+import 'package:Thimar/feature/favourite/presentation/view/favourite_view.dart';
+import 'package:Thimar/feature/notification/notification_view.dart';
 import 'package:Thimar/feature/home/presentation/view/home/home_view/home_view.dart';
-import 'package:Thimar/feature/home/presentation/view/talabaty/talabaty_view.dart';
+import 'package:Thimar/feature/talabaty/talabaty_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

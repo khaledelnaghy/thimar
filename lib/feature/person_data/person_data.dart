@@ -5,6 +5,7 @@ import 'package:Thimar/feature/auth/presentation/widget/custom_button.dart';
 import 'package:Thimar/feature/auth/presentation/widget/custom_row_text_form_field.dart';
 import 'package:Thimar/feature/auth/presentation/widget/cutom_text_form.dart';
 import 'package:Thimar/feature/home/presentation/widgets/custom_app_bar_row.dart';
+import 'package:Thimar/feature/person_data/widgets/text_form_personal_data.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
@@ -15,12 +16,11 @@ class PersonData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+      // resizeToAvoidBottomInset: false,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Gap(50),
               CustomAppBarRow(
@@ -113,15 +113,7 @@ class PersonData extends StatelessWidget {
                 ),
               ),
               Gap(20),
-              CutomTextFormField(
-                hintText: "كلمة المرور",
-                fontSize: 17,
-                prefixIcon: Icon(
-                  FontAwesomeIcons.locationPinLock,
-                  color: buttonColor,
-                  size: 17,
-                ),
-              ),
+              TextFormPersonalData(),
               Gap(20),
               CustomButton(
                 text: "تعديل البيانات",

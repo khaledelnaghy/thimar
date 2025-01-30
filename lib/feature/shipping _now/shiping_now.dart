@@ -13,10 +13,9 @@ class ShipingNow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -54,13 +53,12 @@ class ShipingNow extends StatelessWidget {
                 dataExpire: "تاريخ الانتهاء",
                 textNumber: "الرقم المتسلسل",
               ),
-              Spacer(),
+              Gap(120),
               CustomButton(
                 text: "دفغ",
                 onPressed: () {},
                 color: buttonColor,
               ),
-              Gap(15),
             ],
           ),
         ),
