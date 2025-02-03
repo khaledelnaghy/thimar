@@ -1,7 +1,5 @@
-import 'package:Thimar/core/constant/app_constant.dart';
 import 'package:Thimar/core/function/navigator.dart';
 import 'package:Thimar/core/utils/assets.dart';
-import 'package:Thimar/core/utils/styles.dart';
 import 'package:Thimar/core/widgets/navigation_view.dart';
 import 'package:Thimar/feature/auth/data/models/request/login_params.dart';
 import 'package:Thimar/feature/auth/presentation/bloc/auth_bloc.dart';
@@ -20,6 +18,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
+import 'package:lottie/lottie.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
@@ -39,29 +38,14 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         listener: (context, state) {
           if (state is LoginSuccessState) {
             pushAndRemoveUntil(context, const NavigationbarView());
-          scaffoldMessenger(context, "تم تسجيل الدخول بنجاح", );
-          
+            scaffoldMessenger(
+              context,
+              "تم تسجيل الدخول بنجاح",
+            );
           } else if (state is LoginErrorState) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                backgroundColor: buttonColor,
-                shape: RoundedRectangleBorder(
-                  // side:   BorderSide(color: Colors.green.withAlpha(100)),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-
-                // padding: const EdgeInsets.all(15),
-                margin: EdgeInsets.only(left: 10, right: 10, bottom: 5),
-
-                behavior: SnackBarBehavior.floating,
-                duration: const Duration(seconds: 2),
-
-                content: Text(
-                  "يوجد خطأ في الإدخال",
-                  style: Styles.textStyle15.copyWith(color: Colors.white),
-                  textAlign: TextAlign.center,
-                ),
-              ),
+            scaffoldMessenger(
+              context,
+              "يوجد خطأ في الإدخال",
             );
           }
         },
@@ -123,11 +107,17 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         pushAndRemoveUntil(context, const ForgetPassword());
                       },
                     ),
-                    Gap(30),
                     state is LoginLoadingState
-                        ? Center(
-                            child: Center(
-                                child: const CircularProgressIndicator()))
+                        ? ColorFiltered(
+                            colorFilter: ColorFilter.mode(
+                                Color.fromARGB(180, 2, 225, 6),
+                                BlendMode.srcATop),
+                            child: Lottie.asset(
+                              'assets/lottie/loading_animation.json',
+                              height: 250,
+                              width: double.infinity,
+                            ),
+                          )
                         : CustomButton(
                             text: "تسجيل الدخول",
                             onPressed: () {

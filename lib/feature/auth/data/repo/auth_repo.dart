@@ -23,6 +23,7 @@ class AuthRepo {
       } else {
         return null;
       }
+      
     } on Exception catch (e) {
       log(e.toString());
     }

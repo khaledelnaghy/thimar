@@ -1,7 +1,7 @@
-import 'package:Thimar/core/utils/app_router.dart';
+import 'package:Thimar/core/function/navigator.dart';
 import 'package:Thimar/core/utils/styles.dart';
+import 'package:Thimar/feature/auth/presentation/view/forget_password.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class CustimForgetPassword extends StatelessWidget {
   const CustimForgetPassword({super.key, required this.text, this.onPressed});
@@ -13,7 +13,7 @@ class CustimForgetPassword extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: TextButton(
         onPressed: () {
-          GoRouter.of(context).push(AppRouter.forgetPassword);
+          push(context, ForgetPassword());
         },
         child: TextButton(
           onPressed: onPressed,

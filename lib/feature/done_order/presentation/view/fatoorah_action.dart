@@ -1,7 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'package:Thimar/core/widgets/custom_button.dart';
+ import 'package:Thimar/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:myfatoorah_flutter/myfatoorah_flutter.dart';
 
 // const String mAPIUrl = "https://api.myfatoorah.com";
@@ -28,7 +29,8 @@ class PaymentMyFatoorah extends StatefulWidget {
 
 class _PaymentMyFatoorahState extends State<PaymentMyFatoorah> {
   // ignore: unused_field
-  String _response = '';
+  bool isAnimationVisible = false;
+  String response = '';
   final String _loading = "Loading...";
 
   List<MFPaymentMethod> paymentMethods = [];
@@ -74,41 +76,86 @@ class _PaymentMyFatoorahState extends State<PaymentMyFatoorah> {
     });
 
     setState(() {
-      _response = _loading;
+      response = _loading;
     });
   }
 
   /*
     Execute Regular Payment
    */
+  // executeRegularPayment(int paymentMethodId) async {
+  //   var request = MFExecutePaymentRequest(
+  //       paymentMethodId: paymentMethodId, invoiceValue: widget.amount);
+  //   request.displayCurrencyIso = MFCurrencyISO.SAUDIARABIA_SAR;
+
+  //   // var recurring = MFRecurringModel();
+  //   // recurring.intervalDays = 10;
+  //   // recurring.recurringType = MFRecurringType.Custom;
+  //   // recurring.iteration = 2;
+  //   // request.recurringModel = recurring;
+
+  //   await MFSDK.executePayment(request, MFLanguage.ENGLISH, (invoiceId) {
+  //     log('-=-=---=- invoiceId $invoiceId');
+  //   }).then((value) {
+  //     if (value.invoiceTransactions?.isNotEmpty == true &&
+  //         value.invoiceTransactions!.first.transactionStatus == 'Succss') {
+  //       setState(() {
+  //         isAnimationVisible = true; // عرض Lottie Animation
+  //       });
+  //       // log( '==--=-= value is toJson ${value.invoiceTransactions!.first.toJson()}');
+  //       //
+  //       // log( '==--=-= value is transactionStatus ${value.invoiceTransactions!.first.transactionStatus}');
+  //       //
+  //       // ColorFiltered(
+  //       //   colorFilter: ColorFilter.mode(
+  //       //       Color.fromARGB(180, 2, 225, 6), BlendMode.srcATop),
+  //       //   child: Lottie.asset(
+  //       //     'assets/lottie/loading_animation.json',
+  //       //     height: 250,
+  //       //     width: double.infinity,
+  //       //   ),
+  //       // );
+  //       log('==--=-= value is transactionId ${value.invoiceTransactions!.first.transactionId}');
+  //       widget.onSuccess(
+  //           value.invoiceTransactions!.first.transactionId.toString());
+
+  //       Navigator.pop(context);
+  //     }
+  //   }).catchError((error) {
+  //     log('-=-=-=-=-=error${error.message}');
+
+  //     ScaffoldMessenger.of(context)
+  //         .showSnackBar(SnackBar(content: Text(error.message.toString())));
+  //   });
+  // }
+
   executeRegularPayment(int paymentMethodId) async {
     var request = MFExecutePaymentRequest(
         paymentMethodId: paymentMethodId, invoiceValue: widget.amount);
     request.displayCurrencyIso = MFCurrencyISO.SAUDIARABIA_SAR;
-
-    // var recurring = MFRecurringModel();
-    // recurring.intervalDays = 10;
-    // recurring.recurringType = MFRecurringType.Custom;
-    // recurring.iteration = 2;
-    // request.recurringModel = recurring;
 
     await MFSDK.executePayment(request, MFLanguage.ENGLISH, (invoiceId) {
       log('-=-=---=- invoiceId $invoiceId');
     }).then((value) {
       if (value.invoiceTransactions?.isNotEmpty == true &&
           value.invoiceTransactions!.first.transactionStatus == 'Succss') {
-        // log( '==--=-= value is toJson ${value.invoiceTransactions!.first.toJson()}');
-        //
-        // log( '==--=-= value is transactionStatus ${value.invoiceTransactions!.first.transactionStatus}');
-        //
+        setState(() {
+          isAnimationVisible = true; // عرض Lottie Animation
+        });
+
         log('==--=-= value is transactionId ${value.invoiceTransactions!.first.transactionId}');
         widget.onSuccess(
             value.invoiceTransactions!.first.transactionId.toString());
-        Navigator.pop(context);
+
+        Future.delayed(Duration(seconds: 3), () {
+          setState(() {
+            isAnimationVisible = false; // إخفاء Lottie بعد 3 ثوانٍ
+          });
+          Navigator.pop(context);
+        });
       }
     }).catchError((error) {
       log('-=-=-=-=-=error${error.message}');
-
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(error.message.toString())));
     });
@@ -151,75 +198,130 @@ class _PaymentMyFatoorahState extends State<PaymentMyFatoorah> {
           ? const SizedBox.shrink()
           : Padding(
               padding: const EdgeInsets.all(10.0),
-              child: CustomButton1(
+              child: isAnimationVisible ? null :
+               CustomButton1(
                 onPressed: () {
                   pay();
                 },
-                text: 'دفع',
+                text:   "دفع",
                 radius: 11,
               ),
             ),
-
+//4464040000000007
       // RaisedButton(
       //   color: Colors.lightBlue,
       //   textColor: Colors.white,
       //   child: Text('Pay'),
       //   onPressed: pay,
       // ),
+      // body: SafeArea(
+      //   child: paymentMethods.isEmpty
+      //       ? const Center(child: CircularProgressIndicator())
+      //       : Column(
+      //           children: [
+      //             Expanded(
+      //               child: ListView.builder(
+      //                 itemCount: paymentMethods.length,
+      //                 itemBuilder: (BuildContext ctx, int index) {
+      //                   return
+      //                       // ![
+      //                       //         'ap',
+      //                       //         'md',
+      //                       //         'vm',
+      //                       //       ].contains(paymentMethods[index].paymentMethodCode.toString()) ||
+      //                       //       (paymentMethods[index].paymentMethodCode.toString() == 'ap' && !Platform.isIOS)
+      //                       //   ? SizedBox.shrink()
+      //                       //   :
+      //                       Container(
+      //                           decoration: BoxDecoration(
+      //                               border: Border.all(
+      //                                 color: Colors.grey,
+      //                                 width: .2,
+      //                               ),
+      //                               borderRadius: BorderRadius.circular(8)),
+      //                           child: Row(
+      //                             children: <Widget>[
+      //                               Checkbox(
+      //                                   value: isSelected[index],
+      //                                   onChanged: (bool? value) {
+      //                                     setState(() {
+      //                                       setPaymentMethodSelected(
+      //                                           index, value!);
+      //                                     });
+      //                                   }),
+      //                               Image.network(
+      //                                 paymentMethods[index].imageUrl!,
+      //                                 width: 40.0,
+      //                                 height: 40.0,
+      //                               ),
+      //                               SizedBox(width: 10),
+      //                               Expanded(
+      //                                 child: Text(paymentMethods[index]
+      //                                         .paymentMethodEn ??
+      //                                     ""),
+      //                               )
+      //                             ],
+      //                           ));
+      //                 },
+      //               ),
+      //             ),
+
+      //           ],
+      //         ),
+      // ),
       body: SafeArea(
-        child: paymentMethods.isEmpty
-            ? const Center(child: CircularProgressIndicator())
-            : Column(
-                children: [
-                  Expanded(
-                    child: ListView.builder(
-                      itemCount: paymentMethods.length,
-                      itemBuilder: (BuildContext ctx, int index) {
-                        return
-                            // ![
-                            //         'ap',
-                            //         'md',
-                            //         'vm',
-                            //       ].contains(paymentMethods[index].paymentMethodCode.toString()) ||
-                            //       (paymentMethods[index].paymentMethodCode.toString() == 'ap' && !Platform.isIOS)
-                            //   ? SizedBox.shrink()
-                            //   :
-                            Container(
-                                decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: Colors.grey,
-                                      width: .2,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8)),
-                                child: Row(
-                                  children: <Widget>[
-                                    Checkbox(
-                                        value: isSelected[index],
-                                        onChanged: (bool? value) {
-                                          setState(() {
-                                            setPaymentMethodSelected(
-                                                index, value!);
-                                          });
-                                        }),
-                                    Image.network(
-                                      paymentMethods[index].imageUrl!,
-                                      width: 40.0,
-                                      height: 40.0,
-                                    ),
-                                    SizedBox(width: 10),
-                                    Expanded(
-                                      child: Text(paymentMethods[index]
-                                              .paymentMethodEn ??
-                                          ""),
-                                    )
-                                  ],
-                                ));
-                      },
-                    ),
+  child: isAnimationVisible
+      ? Center(
+          child: Lottie.asset(
+            'assets/lottie/verification_success.json',
+            width: 200,
+            height: 200,
+
+          ),
+        )
+      : paymentMethods.isEmpty
+          ? const Center(child: CircularProgressIndicator())
+          : Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: paymentMethods.length,
+                    itemBuilder: (BuildContext ctx, int index) {
+                      return Container(
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.grey,
+                                width: .2,
+                              ),
+                              borderRadius: BorderRadius.circular(8)),
+                          child: Row(
+                            children: <Widget>[
+                              Checkbox(
+                                  value: isSelected[index],
+                                  onChanged: (bool? value) {
+                                    setState(() {
+                                      setPaymentMethodSelected(index, value!);
+                                    });
+                                  }),
+                              Image.network(
+                                paymentMethods[index].imageUrl!,
+                                width: 40.0,
+                                height: 40.0,
+                              ),
+                              SizedBox(width: 10),
+                              Expanded(
+                                child: Text(paymentMethods[index]
+                                        .paymentMethodEn ??
+                                    ""),
+                              )
+                            ],
+                          ));
+                    },
                   ),
-                ],
-              ),
-      ),
+                ),
+              ],
+            ),
+),  
     );
   }
 }
