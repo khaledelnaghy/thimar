@@ -19,7 +19,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     await ProfileRepo.showProfileRepo().then((value) {
       if (value != null) {
         showPolicyResponseModels = value;
-        emit(ShowProfileSuccess());
+        emit(ShowProfileSuccess(
+          showPolicyResponseModels: value,
+        ));
       } else {
         emit(ShowProfileError());
       }

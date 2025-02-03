@@ -39,23 +39,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         listener: (context, state) {
           if (state is LoginSuccessState) {
             pushAndRemoveUntil(context, const NavigationbarView());
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                backgroundColor: buttonColor,
-                shape: RoundedRectangleBorder(
-                  // side:   BorderSide(color: Colors.green.withAlpha(100)),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                margin: EdgeInsets.only(left: 10, right: 10, bottom: 5),
-                behavior: SnackBarBehavior.floating,
-                duration: const Duration(milliseconds: 200),
-                content: Text(
-                  "تم تسجيل الدخول بنجاح",
-                  style: Styles.textStyle15.copyWith(color: Colors.white),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            );
+          scaffoldMessenger(context, "تم تسجيل الدخول بنجاح", );
+          
           } else if (state is LoginErrorState) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(

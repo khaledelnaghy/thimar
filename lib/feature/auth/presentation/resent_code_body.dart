@@ -2,10 +2,10 @@ import 'package:Thimar/core/constant/app_constant.dart';
 import 'package:Thimar/core/function/navigator.dart';
 import 'package:Thimar/core/utils/assets.dart';
 import 'package:Thimar/core/utils/styles.dart';
+import 'package:Thimar/core/widgets/navigation_view.dart';
 import 'package:Thimar/feature/auth/presentation/bloc/auth_bloc.dart';
 import 'package:Thimar/feature/auth/presentation/bloc/auth_event.dart';
 import 'package:Thimar/feature/auth/presentation/bloc/auth_state.dart';
-import 'package:Thimar/feature/auth/presentation/view/login_view.dart';
 import 'package:Thimar/feature/auth/presentation/view/register_view.dart';
 import 'package:Thimar/feature/auth/presentation/widget/change_phone_number.dart';
 import 'package:Thimar/feature/auth/presentation/widget/circular_count_down_timer.dart';
@@ -28,6 +28,7 @@ class ResentCodeBody extends StatefulWidget {
 
 class _ResentCodeBodyState extends State<ResentCodeBody> {
   var pinController = TextEditingController();
+  var phoneController = TextEditingController();
   var formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -35,11 +36,17 @@ class _ResentCodeBodyState extends State<ResentCodeBody> {
       child: Scaffold(
         body: BlocConsumer<AuthBloc, AuthState>(
           listener: (context, state) {
-            if (state is CheckCodeSuccessState) {
-              pushAndRemoveUntil(context, const LoginView());
+            if (state is VerifySuccessState) {
+              print("Verification successful! Navigating to the next screen.");
+              pushAndRemoveUntil(context, const NavigationbarView());
+               scaffoldMessenger(context, "تم التحقق بنجاح");
+              
+            } else if (state is VerifyErrorState) {
+              scaffoldMessenger(context, state.errorMesaage);
             }
           },
           builder: (context, state) {
+            print("Current Bloc State: $state");
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: SingleChildScrollView(
@@ -61,29 +68,37 @@ class _ResentCodeBodyState extends State<ResentCodeBody> {
                         fontSize: 15,
                       ),
                       ChangePhoneNumber(
-                        textNumber: '${widget.numberPhone}+',
+                        textNumber: '${widget.numberPhone}',
                         textChangeNumber: "تغير رقم الجوال",
                         onPressed: () {},
                       ),
                       const Gap(10),
                       CustomPinCodeTextField(
+                        controller: pinController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'رجاء ادخال الكود';
                           }
                           return null;
                         },
-                        controller: pinController,
                       ),
                       Gap(10),
                       CustomButton(
                         text: "تأكيد الكود",
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
+                            if (pinController.text.isEmpty) {
+                              scaffoldMessenger(context, "رجاء ادخال الكود");
+                              return;
+                            }
+                            print("Entered Code: ${pinController.text}");
+
                             context.read<AuthBloc>().add(
-                                  CheckCodeEvent(
+                                  VerifiyEvent(
                                     code: pinController.text,
                                     phone: widget.numberPhone,
+                                    deviceToken: "test",
+                                    type: "ios",
                                   ),
                                 );
                           }

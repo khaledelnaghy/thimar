@@ -8,9 +8,12 @@ class DioProvider {
   }
 
   static Future<Response> getData(
-      {required String endPoint, Map<String, dynamic>? header}) async {
+      {required String endPoint,
+      Map<String, dynamic>? header,
+      Map<String, dynamic>? data}) async {
     return await dio.get(
       endPoint,
+      data: data,
       options: Options(headers: header),
     );
   }

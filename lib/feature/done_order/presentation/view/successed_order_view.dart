@@ -44,9 +44,9 @@ class SuccessOrderView extends StatelessWidget {
                 Gap(11),
                 Text(
                   'يمكنك متابعة حالة الطلب او الرجوع للرئسيية',
-                 style: Styles.textStyle15.copyWith(
-                  color: Color(0xff707070),
-                 ),
+                  style: Styles.textStyle15.copyWith(
+                    color: Color(0xff707070),
+                  ),
                 ),
                 Gap(29),
                 Row(

@@ -20,6 +20,7 @@ class CartView extends StatefulWidget {
 }
 
 class _CartViewState extends State<CartView> {
+  int index = 0;
   @override
   void initState() {
     super.initState();
@@ -91,6 +92,7 @@ class _CartViewState extends State<CartView> {
                 color: buttonColor,
                 text: "الانتقال لإتمام الطلب",
               ),
+              Gap(10),
             ],
           ),
         ),

@@ -2,7 +2,7 @@ import 'package:Thimar/core/constant/app_constant.dart';
 import 'package:Thimar/core/function/navigator.dart';
 import 'package:Thimar/core/utils/assets.dart';
 import 'package:Thimar/feature/about_app/presentation/view/about_app.dart';
-import 'package:Thimar/feature/address/address.dart';
+import 'package:Thimar/feature/address/presentation/view/address.dart';
 import 'package:Thimar/feature/auth/presentation/view/login_view.dart';
 import 'package:Thimar/feature/calling/calling.dart';
 import 'package:Thimar/feature/complaints_suggestions/presentation/view/complaints_suggestions.dart';
@@ -23,7 +23,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 
 class ProfileView extends StatefulWidget {
-  const ProfileView({super.key});
+  const ProfileView({
+    super.key,
+  });
 
   @override
   State<ProfileView> createState() => _ProfileViewState();
@@ -46,7 +48,11 @@ class _ProfileViewState extends State<ProfileView> {
           }
         },
         builder: (context, state) {
-          if (state is ShowProfileSuccess) {
+          if (state is ShowProfileLoading) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else if (state is ShowProfileSuccess) {
             var showItem =
                 context.read<ProfileBloc>().showPolicyResponseModels?.data;
             return SingleChildScrollView(
@@ -63,9 +69,10 @@ class _ProfileViewState extends State<ProfileView> {
                     ),
                     child: CustomDataPerson(
                       myAccount: showItem?.fullname ?? "",
-                      myPhone: showItem?.phone ?? "",
+                      myPhone:
+                          state.showPolicyResponseModels?.data?.phone ?? "",
                       name: "خالد الناغي",
-                      photo: showItem?.image ?? "",
+                      photo: state.showPolicyResponseModels?.data?.image ?? "",
                     ),
                   ),
                   Gap(25),

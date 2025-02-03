@@ -1,6 +1,7 @@
 import 'package:Thimar/core/services/dio_provider.dart';
 import 'package:Thimar/core/services/local_storage.dart';
 import 'package:Thimar/feature/about_app/presentation/bloc/about_app_bloc.dart';
+import 'package:Thimar/feature/address/presentation/bloc/add_address_bloc.dart';
 import 'package:Thimar/feature/auth/presentation/bloc/auth_bloc.dart';
 import 'package:Thimar/feature/cart/presentation/bloc/cart_bloc.dart';
 import 'package:Thimar/feature/complaints_suggestions/presentation/bloc/common_suggestion_bloc.dart';
@@ -17,7 +18,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 //navigate without Context
-GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -62,6 +63,9 @@ class Thimar extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => OrderBloc(),
+        ),
+        BlocProvider(
+          create: (context) => AddAddressBloc(),
         ),
       ],
       child: MaterialApp(

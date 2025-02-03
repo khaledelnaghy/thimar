@@ -22,7 +22,6 @@ class _PaymentBottomSheetViewState extends State<PaymentBottomSheetView> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      
       key: formKey,
       // autovalidateMode: autovalidateMode,
       child: Column(
@@ -75,8 +74,8 @@ class _PaymentBottomSheetViewState extends State<PaymentBottomSheetView> {
               ),
               Text(
                 "إضافه بطاقه دفع",
-                style: Styles.textStyle17.copyWith(
-                    color: buttonColor, fontWeight: FontWeight.w500),
+                style: Styles.textStyle17
+                    .copyWith(color: buttonColor, fontWeight: FontWeight.w500),
               )
             ],
           ),

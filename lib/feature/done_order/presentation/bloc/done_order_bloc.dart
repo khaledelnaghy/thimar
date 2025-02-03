@@ -14,12 +14,12 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
     //api
     await OrderRepo.confirmOrderRepo(
       addressId: event.addressId,
-      date:event.date ,
+      date: event.date,
       payType: event.payType,
-      time:event.time ,
+      time: event.time,
     ).then(
       (value) {
-        if (value==true) {
+        if (value == true) {
           emit(ConfirmOrderSuccessState());
         } else {
           emit(ConfirmOrderErrorState());

@@ -30,5 +30,21 @@ class ForgetPasswordEvent extends AuthEvent {
 class CheckCodeEvent extends AuthEvent {
   final String code;
   final String phone;
-  CheckCodeEvent({required this.code, required this.phone});
+  final String phoneCode;
+  CheckCodeEvent(
+      {required this.code, required this.phone, required this.phoneCode});
+}
+
+//verifiy
+class VerifiyEvent extends AuthEvent {
+  final String code;
+  final String phone;
+  final String deviceToken;
+  final String type;
+
+  VerifiyEvent(
+      {required this.code,
+      required this.phone,
+      required this.deviceToken,
+      required this.type});
 }

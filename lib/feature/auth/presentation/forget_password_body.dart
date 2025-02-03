@@ -68,7 +68,7 @@ class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'رجاء ادخال رقم الهاتف';
-                          } else if (value.length < 11) {
+                          } else if (value.length < 5) {
                             return 'الرقم غير صحيح';
                           }
                           return null;

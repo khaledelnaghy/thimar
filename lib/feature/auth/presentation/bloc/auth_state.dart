@@ -1,3 +1,4 @@
+
 class AuthState {}
 
 class AuthInitial extends AuthState {}
@@ -35,3 +36,18 @@ class ForgetPasswordSuccessState extends AuthState {}
 class CheckCodeLoadingState extends AuthState {}
 
 class CheckCodeSuccessState extends AuthState {}
+
+//verify
+class VerifyLoadingState extends AuthState {}
+
+class VerifySuccessState extends AuthState {
+  // final RegisterResponseModel? data;
+
+  // VerifySuccessState(this.data);
+}
+
+class VerifyErrorState extends AuthState {
+  final String errorMesaage;
+
+  VerifyErrorState({required this.errorMesaage});
+}

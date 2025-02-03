@@ -33,7 +33,11 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
   var phoneController = TextEditingController();
   var passwordController = TextEditingController();
   var confirmPasswordController = TextEditingController();
+  var lattuideController = TextEditingController();
+  var longtitudeController = TextEditingController();
+  var countryController = TextEditingController();
   String numberPhone = "";
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -112,15 +116,30 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                     InkWell(
                       onTap: () {},
                       child: CutomTextFormField(
+                        controller: countryController,
                         hintText: "المدينة",
                         prefixIcon: InkWell(
-                          onTap: () {
+                          onTap: () async {
                             //  Permission.location.request() => تستخدم لطلب إذن الوصول لموثع الجهاز
                             Permission.location.request().then((value) {
                               //value.isGranted => إذا تم منح الإذن للوصول للموقع ف دا معناة ان المستخدم قد وافق علي منح الإذن
                               if (value.isGranted) {
                                 push(navigatorKey.currentContext!,
-                                    const MapViewAction());
+                                    MapViewAction(
+                                  onLocationSelected: (latLng, address) {
+                                    lattuideController.text =
+                                        latLng.latitude.toString();
+                                    longtitudeController.text =
+                                        latLng.longitude.toString();
+                                    countryController.text = address; // Set
+                                    print("Selected Location: $latLng");
+                                    print("Address: $address");
+                                    // lattuideController.text =
+                                    //     location.latitude.toString();
+                                    // print(
+                                    //     '-==- loc is $location , lat lng ${LatLng.toString()}');
+                                  },
+                                ));
                               }
                             });
                           },
@@ -175,6 +194,8 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                                       RegisterEvent(
                                         params: RegisterParams(
                                           name: nameController.text,
+                                          lattuide: lattuideController.text,
+                                          longtude: longtitudeController.text,
                                           phone:
                                               int.parse(phoneController.text),
                                           password: int.parse(

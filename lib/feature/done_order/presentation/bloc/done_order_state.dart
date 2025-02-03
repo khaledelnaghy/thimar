@@ -1,4 +1,4 @@
-class OrderState{}
+class OrderState {}
 
 class OrderInitial extends OrderState {}
 

@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:Thimar/core/constant/app_constant.dart';
+import 'package:Thimar/core/function/navigator.dart';
 import 'package:Thimar/core/utils/assets.dart';
 import 'package:Thimar/core/utils/styles.dart';
+import 'package:Thimar/feature/done_order/presentation/view/fatoorah_action.dart';
 import 'package:Thimar/feature/done_order/presentation/widgets/payment_bottom_sheet.dart';
 import 'package:Thimar/feature/done_order/presentation/widgets/payment_card.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +54,15 @@ class _CustomPaymentRowState extends State<CustomPaymentRow> {
             ),
             InkWell(
               onTap: () {
-                showModelBottomSheetPayment(context);
+                push(
+                    context,
+                    PaymentMyFatoorah(
+                      amount: 100,
+                      onSuccess: (transId) {
+                        log(' -=--=-=-==--==- $transId');
+                      },
+                    ));
+                // showModelBottomSheetPayment(context);
                 setState(() {
                   cheekColorBorder = 1;
                 });
@@ -77,7 +89,6 @@ class _CustomPaymentRowState extends State<CustomPaymentRow> {
                 textColor: cheekColorBorder == 2 ? Colors.white : buttonColor,
                 color: cheekColorBorder == 2 ? buttonColor : Colors.white,
                 text: 'visa',
-
                 colorFilter:
                     const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
               ),

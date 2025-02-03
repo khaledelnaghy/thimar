@@ -1,6 +1,6 @@
 import 'package:Thimar/core/widgets/navigation_view.dart';
 import 'package:Thimar/feature/about_app/presentation/view/about_app.dart';
-import 'package:Thimar/feature/address/address.dart';
+import 'package:Thimar/feature/address/presentation/view/address.dart';
 import 'package:Thimar/feature/auth/presentation/view/forget_password.dart';
 import 'package:Thimar/feature/auth/presentation/view/login_view.dart';
 import 'package:Thimar/feature/auth/presentation/view/new_password.dart';
@@ -98,10 +98,10 @@ abstract class AppRouter {
       path: transactionHistory,
       builder: (context, state) => TransactionHistory(),
     ),
-    GoRoute(
-      path: address,
-      builder: (context, state) => Address(),
-    ),
+    // GoRoute(
+    //   path: address,
+    //   builder: (context, state) => Address(),
+    // ),
     GoRoute(
       path: personData,
       builder: (context, state) => PersonData(),
@@ -150,10 +150,10 @@ abstract class AppRouter {
       path: notificationView,
       builder: (context, state) => NotificationView(),
     ),
-    GoRoute(
-      path: profileView,
-      builder: (context, state) => ProfileView(),
-    ),
+    // GoRoute(
+    //   path: profileView,
+    //   builder: (context, state) => ProfileView(),
+    // ),
     GoRoute(
       path: navigationBarView,
       builder: (context, state) => NavigationbarView(),
